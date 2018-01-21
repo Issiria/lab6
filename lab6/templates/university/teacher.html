@@ -1,0 +1,39 @@
+{% extends "university/base.html" %}
+{% load static %}
+
+{% block title %}
+
+    <h1>
+       {{ name }}
+    </h1>
+{% endblock %}
+{% block content %}
+<div class="col-sm-3">
+    <img src="{% static "university/img/gapa.png" %}" class="big_avatar">
+</div>
+<div class="col-sm-9">
+    <div class="text-block">
+        <div class="text-block-content">
+            <h2>
+                Биография
+            </h2>
+            <p>
+              {{ bio }}
+            </p>
+        </div>
+    </div>
+    <div class="text-block">
+        <div class="text-block-content">
+            <h2>
+                Преподаваемые дисциплины
+            </h2>
+            <u1>
+               {% for i in courses %}
+                   <li> {{ i }}
+                   </li>
+                {% endfor %}
+            </u1>
+        </div>
+    </div>
+</div>
+{% endblock %}

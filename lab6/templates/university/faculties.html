@@ -1,0 +1,37 @@
+{% extends "university/base.html" %}
+
+{% block title %}
+    <h1>
+        Кафедры ИУ
+    </h1>
+{% endblock %}
+
+{% block content %}
+    {% for pair in chair_pairs %}
+        <div class="row">
+            {% for chair in pair %}
+                {% if chair %}
+                <div class="col-md-6">
+                    <div class="text-block">
+                        <div class="row text-block-header">
+                            <div class="col-md-2">
+                                <a href="{% url "faculty_info" chair.name %}">{{ chair.name }}</a>
+                            </div>
+                            <div class="col-md-10">
+                                {{ chair.longname }}
+                            </div>
+                        </div>
+                        <div class="row text-block-content">
+                            <div class="col-md-12">
+                                <p class="text">
+                                    {{ chair.description_short }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

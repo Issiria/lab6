@@ -1,0 +1,57 @@
+{% extends "university/base.html" %}
+{% load static %}
+{% block title %}
+    <h1>
+        Кафедра {{ name }}
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-7">
+        <div class="text-block">
+            <div class="text-block-content">
+                <h2>
+                    Описание
+                </h2>
+                <p>
+                    {{ description }}
+                </p>
+            </div>
+        </div>
+        <div class="text-block">
+            <div class="text-block-content">
+                <h2>
+                    Направление подготовки
+                </h2>
+                <p>
+                    {{ subjects }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div>
+            <div class="text-block">
+                <div>
+                    <div class="text-block-content">
+                        <h2>
+                            Преподаватели
+                        </h2>
+                        {% for i in teachers %}
+                        <div class="teacher">
+                            <img src="{% static "university/img/gapa.png" %}" class="medium-avatar">
+                            <div>
+                                <a href="{% url "single_teacher" i.id  %}">{{ i.name }}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
